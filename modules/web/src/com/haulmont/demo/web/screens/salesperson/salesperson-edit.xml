@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.haulmont.demo.web.screens.salesperson.SalespersonEdit"
+        datasource="salespersonDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.haulmont.demo.web.screens.salesperson">
+    <dsContext>
+        <datasource id="salespersonDs"
+                    class="com.haulmont.demo.entity.Salesperson"
+                    view="salesperson-with-photo-view"/>
+    </dsContext>
+    <layout spacing="true">
+        <grid height="100%" spacing="true" width="100%">
+            <columns>
+                <column/>
+                <column flex="1.0"/>
+            </columns>
+            <rows>
+                <row>
+                    <fieldGroup id="fieldGroup" datasource="salespersonDs">
+                        <column width="250px">
+                            <field property="name"/>
+                            <field property="phone" mask="(###) ###-##-##" valueMode="masked"/>
+                            <field property="latitude" editable="false"/>
+                            <field property="longitude" editable="false"/>
+                        </column>
+                    </fieldGroup>
+                    <vbox id="mapContainer" height="100%" rowspan="4"/>
+                </row>
+                <row>
+                    <groupBox spacing="true" caption="msg://photoContainer">
+                        <image id="image"
+                               width="300px"
+                               height="300px"
+                               scaleMode="CONTAIN"
+                               align="MIDDLE_CENTER"/>
+                        <hbox id="photoBox" spacing="true" align="MIDDLE_CENTER">
+                            <upload id="photoUploadField"
+                                    uploadButtonCaption="msg://uploadPhoto"
+                                    accept="*.jpg,*.ico,*.png"/>
+                            <button id="photoClearButton"
+                                    caption="msg://removePhoto"
+                                    invoke="removePhoto"/>
+                        </hbox>
+                    </groupBox>
+                </row>
+                <row flex="1.0">
+                    <label id="spacer"/>
+                </row>
+                <row>
+                    <frame id="windowActions" screen="editWindowActions"/>
+                </row>
+            </rows>
+        </grid>
+    </layout>
+</window>

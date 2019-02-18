@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.haulmont.demo.web.screens.salesperson.SalespersonBrowse"
+        focusComponent="salespersonsTable"
+        lookupComponent="salespersonsTable"
+        messagesPack="com.haulmont.demo.web.screens.salesperson">
+    <dsContext>
+        <groupDatasource id="salespersonsDs"
+                         class="com.haulmont.demo.entity.Salesperson"
+                         view="salesperson-with-photo-view">
+            <query><![CDATA[select e from leafletdemo$Salesperson e]]></query>
+        </groupDatasource>
+    </dsContext>
+    <layout expand="salespersonsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="salespersonsTable"
+                datasource="salespersonsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="salespersonsTable"
+                    width="100%">
+            <actions>
+                <action id="create" openType="NEW_TAB"/>
+                <action id="edit" openType="NEW_TAB"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="phone"/>
+            </columns>
+            <rows datasource="salespersonsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="salespersonsTable.create"/>
+                <button id="editBtn" action="salespersonsTable.edit"/>
+                <button id="removeBtn" action="salespersonsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.haulmont.demo.web.screens.map.MapScreen"
+        messagesPack="com.haulmont.demo.web.screens.map"
+        caption="msg://caption">
+    <dsContext>
+        <collectionDatasource id="salespersonsDs"
+                              class="com.haulmont.demo.entity.Salesperson"
+                              view="salesperson-with-photo-view">
+            <query><![CDATA[select sp from leafletdemo$Salesperson sp]]></query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="mapContainer" spacing="true">
+        <hbox spacing="true" align="MIDDLE_CENTER" width="100%">
+            <button id="flyToNextPersonButton"
+                    caption="msg://flyToNextPersonButton"
+                    invoke="flyToNextPerson"
+                    width="100%"/>
+            <button id="refreshButton"
+                    caption="msg://refreshButton"
+                    invoke="refresh"
+                    width="100%"/>
+        </hbox>
+        <vbox id="mapContainer" width="100%"/>
+    </layout>
+</window>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <screen id="mainWindow" template="/com/haulmont/demo/web/mainwindow.xml"/>
+    <screen id="leafletdemo$Salesperson.browse" template="/com/haulmont/demo/web/screens/salesperson/salesperson-browse.xml"/>
+    <screen id="leafletdemo$Salesperson.edit" template="/com/haulmont/demo/web/screens/salesperson/salesperson-edit.xml"/>
+    <screen id="leafletdemo_MapScreen" template="com/haulmont/demo/web/screens/map/map-screen.xml"/>
+</screen-config>
